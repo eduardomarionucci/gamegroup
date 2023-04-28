@@ -66,13 +66,13 @@
           </form>
         </div>
       </div>
-    </nav>
+    </nav> 
     <section class="section" id="landing-page">
         <div class="container-lg d-flex ">
             <div class="my-auto d-flex flex-column">
-                <h1 class="text-dark pb-1" id="gradient">Transforme sua gameplay entre amigos.</h1>
+                <h1 class="text-dark pb-1" id="gradient">Transforme sua gameplay entre amigos</h1>
                 <div class="text-dark mt-1">Tenha experiências competitivas com qualidade.</div>
-                <button type="button" class="btn btn-outline-purple w-25 mt-2">Saiba mais</button>
+                <button type="button" class="btn btn-outline-dark w-25 mt-2">Saiba mais</button>
             </div>
             <div class="container-md">
                 <img src="./assets/Kerfin7_NEA_2332.png" class="img-fluid">
@@ -83,7 +83,9 @@
     <section id="game-informations">
       <div class="container-fluid d-flex flex-column " id="bgGradient">
         <div class="container-lg py-5 ">
-        <div class="text-light text-center py-3" id="infoText">Suporte para vários jogos competitivos.</div>
+          <div class="d-flex justify-content-center">
+            <div class="text-light text-center py-3" id="infoText">Suporte para vários jogos competitivos.</div>
+          </div>
         <div class="d-flex flex-row mt-4 opacity-50  " id="imgGames">
           <img class="row mx-2" src="./assets/league-of-legends7103-removebg-preview 1.png">
           <img class="row mx-2" src="./assets/valorant.png">
@@ -93,15 +95,23 @@
         </div>
         </div>
       </div>
-    </section>  
+    </section> 
+    <section id="tournaments">
+      <div class="bg-opacity-50">
+        <div class="container-lg pt-5 d-flex flex-column">
+          <h1 id="titleTournaments" clas>Participe de torneios e competições</h1>
+          <img src="/assets/champions-loud-removebg (2).png" class="img w-75 ">  
+        </div>
+      </div>
+    </section>
     <section id="form-overview">
-      <div class="bg-dark">
+      <div class="bg-dark" style="height: 100vh !important;"> 
         <div class="container-sm d-flex flex-row-reverse w-100">
           <div class="row my-auto w-50 mx-4">
             <h1 class="text-light my-auto" id="titleForm">Monte seu time e comece a jogar.</h1>
             <p class="text-light mt-2">Inscreva os participantes da sua equipe ou monte um baseado nos seu perfil de jogo!</p>
-            <div class="px-3"><button type="button" class="btn btn-warning  w-25">Inscrever-se</button></div>
-            <p class="text-light mt-3" id="info"> *Você será redirecionado para um formulário separ--purpledo com o jogo em questão.</p>
+            <div class="px-3"><a href="formulario.html"><button type="button" class="btn btn-warning  w-25">Inscrever-se</button></a></div>
+            <p class="text-light mt-3" id="info"> *Você será redirecionado para um formulário .</p>
           </div>
           <div class="row w-50">
             <img src="./assets/asd 1.png">
@@ -110,21 +120,20 @@
         </div>
       </div>
     </section>
-    <section id="footer">
-      <div class="container-fluid bg-secondary">
-        <div class="text-lg-center py-4 d-flex flex-row" id="email">
-          <p class="text-black">Notícias e Atualizações</p>
-          <form class="d-flex" role="search">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          </form>
-        </div>
-      </div>
-        <div class="container-lg">
-          
-        </div>
-      </div>
-    </section>
+    <footer>
+    <div class="container">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+        <p class="text-center text-muted">© 2023 Eduardo Marionucci</p>
+      </footer>
+    </div>
+  </footer>
   </body>
   <style>
     :root {
@@ -154,11 +163,22 @@
     }
     #infoText {
       font-weight: 800;
-      font-size: 50px;
+      font-size: 35px;
       line-height: 93.4%;
       /* or 64px */
-      text-align: center;
       letter-spacing: -0.045em;
+      max-width: 60%;
+      text-align: center;
+      margin: 0;
+    }
+    #titleTournaments {
+      font-weight: 800;
+      font-size: 35px;
+      line-height: 93.4%;
+      /* or 64px */
+      letter-spacing: -0.045em;
+      text-align: center;
+      margin: 0;
     }
     #titleForm {
       font-weight: 800;
