@@ -23,11 +23,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
         crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet" />
+
     <title>Página principal</title>
 </head>
 
@@ -59,6 +61,10 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </div>
     </nav>
 
+    <div id="mainPanel" class="mainPanel">
+        <?php include("./mainPanel.php"); ?>
+    </div>
+
 </body>
 <style>
     .navbar-brand {
@@ -67,5 +73,20 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         color: #450066;
     }
 </style>
+<script>
+    function sendComment() {
+        var receiveUser = <?= json_encode($_SESSION["username"]); ?>;
+        var receiveMessage = document.getElementById("receiveMessage").value;
+        var receiveGame = document.getElementById("receiveGame").value;
+
+        $.post("query.php", {
+            receiveUser: receiveUser,
+            receiveMessage: receiveMessage,
+            receiveGame: receiveGame
+        }, function (x) {
+            $("#mainPanel").html(x);
+        }); // fechando o post
+    }
+</script>
 
 </html>
