@@ -1,16 +1,11 @@
-<?php 
-    $servidor_bd = "localhost";
-    $usuario_bd = "root";
-    $senha_bd = "";
-    $bd = "gamegroup";
+<?php
+define('HOST', 'localhost');
+define('USUARIO', 'root');
+define('SENHA', '');
+define('BD', 'gamegroup');
 
-    $con = new mysqli($servidor_bd,
-                      $usuario_bd,
-                      $senha_bd,
-                      $bd);
-    
-    if($con == false){
-        die("Erro na conexão com o banco de dados");
-    }
+//VARIAVEL PARA GUARDAR A EXECUÇÃO DA CONEXÃO
+$con = mysqli_connect(HOST, USUARIO, SENHA, BD) or die('Não Conectou');
+mysqli_set_charset($con, "utf8");;
 
 ?>

@@ -5,7 +5,7 @@ require_once "connection.php";
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
-
+var_dump($username);
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
                 // Redirect to login page
-                header("location: login.php");
+                header("location: ./index.php");
             } else {
                 echo "Algo deu errado, tente novamente mais tarde";
             }
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_close($stmt);
         }
     }
-
+    var_dump(mysqli_error($con));
     // Close connection
     mysqli_close($con);
 }
@@ -103,16 +103,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Sign Up</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet" />
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-  crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+        crossorigin="anonymous"></script>
 
-    
+
     <style>
         body {
             font: 14px sans-serif;
@@ -122,14 +122,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 
     <div class="modal fade" id="myModalR" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-dark">
                 <div class="modal-header text-white">
                     <h5 class="modal-title fs-3" id="exampleModalLabel">Cadastro</h5>
-                    
+
                     <button type="button" class="btn button-primary" data-bs-dismiss="modal" aria-label="Fechar">
                         <img src="./assets/marca-cruzada.png" class="img-fluid">
                     </button>
@@ -138,27 +138,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="form-group mb-3">
                             <label>Usuário</label>
-                            <input type="text" name="username" class="form-control mt-2 <?php echo (!empty($username_err)) ? 
-                            'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                            <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                            <input type="text" name="username" class="form-control mt-2 <?php echo (!empty($username_err)) ?
+                                'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
+                            <span class="invalid-feedback">
+                                <?php echo $username_err; ?>
+                            </span>
                         </div>
                         <div class="form-group my-3">
                             <label>Senha</label>
-                            <input type="password" name="password" class="form-control mt-2<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $password; ?>">
-                            <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                            <input type="password" name="password"
+                                class="form-control mt-2<?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>"
+                                value="<?php echo $password; ?>">
+                            <span class="invalid-feedback">
+                                <?php echo $password_err; ?>
+                            </span>
                         </div>
                         <div class="form-group my-3 ">
                             <label>Confirme sua Senha</label>
-                            <input type="password" name="confirm_password" class="form-control mt-2<?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $confirm_password; ?>">
-                            <span class="invalid-feedback"><?php echo $confirm_password_err; ?></span>
+                            <input type="password" name="confirm_password"
+                                class="form-control mt-2<?php echo (!empty($confirm_password_err)) ? 'is-invalid' : ''; ?>"
+                                value="<?php echo $confirm_password; ?>">
+                            <span class="invalid-feedback">
+                                <?php echo $confirm_password_err; ?>
+                            </span>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" id="submitBtn" value="Enviar">
                             <input type="reset" class="btn btn-secondary ml-2" value="Reset">
                         </div>
                         <div class="form-group mt-2">
-                        <p>Já tem uma conta? <a href="login.php" data-bs-toggle="modal"
-                                data-bs-target="#myModal" data-bs-dismiss="modal">Login aqui</a>.</p>
+                            <p>Já tem uma conta? <a href="login.php" data-bs-toggle="modal" data-bs-target="#myModal"
+                                    data-bs-dismiss="modal">Login aqui</a>.</p>
                         </div>
                     </form>
                 </div>

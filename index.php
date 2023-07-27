@@ -1,6 +1,7 @@
 
 <?php
 include './php/login.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -85,9 +86,13 @@ include './php/login.php';
   <section id="tournaments">
     <div class="bg-opacity-50">
       <div class="masterhead object-fit-cover bg-dark" style="background-image: url('./assets/3312542\ 1.png');">
-        <div class="container-lg pt-5 d-flex flex-column align-items-center">
-          <h1 id="titleTournaments" class="text-white">Participe de torneios e competições</h1>
-          <img src="/assets/champions-loud-removebg (2).png" class="img w-75">
+        <div class="container-lg py-5 d-flex flex-column align-items-center">
+          <h1 id="titleTournaments" class="text-white">Compartilhe suas experiências</h1>
+          <div class="container-lg d-flex">
+            <div>
+              
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -114,6 +119,7 @@ include './php/login.php';
     <?php
     include './php/register.php';
     ?>
+    
 
   </section>
   <footer>
@@ -180,7 +186,7 @@ include './php/login.php';
 
   #titleTournaments {
     font-weight: 800;
-    font-size: 35px;
+    font-size: 40px;
     line-height: 93.4%;
     /* or 64px */
     letter-spacing: -0.045em;
