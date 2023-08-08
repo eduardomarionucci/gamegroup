@@ -7,9 +7,9 @@ $receiveUsername = $_SESSION["username"];
 $receiveMessage = $_POST["receiveMessage"];
 $receiveGame = $_POST["receiveGame"];
 
-$sql = "INSERT INTO comments (username, comment, game) values ('$receiveUsername', '$receiveMessage', '$receiveGame')";
+$sql = "INSERT INTO discussions (username, discussion, game) values ('$receiveUsername', '$receiveMessage', '$receiveGame')";
 $result = $con->query($sql);
+$con->close();
 
-
-
+include("mainPanel.php");
 ?>
