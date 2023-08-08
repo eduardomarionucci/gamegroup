@@ -11,5 +11,5 @@ $sql = "INSERT INTO comments (username, comment, discussion) values ('$receiveUs
 $result = $con->query($sql);
 $con->close();
 
-include("./discussionPanel.php");
+include("discussionPanel.php");
 ?>

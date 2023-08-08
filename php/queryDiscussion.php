@@ -11,5 +11,5 @@ $sql = "INSERT INTO discussions (username, discussion, game) values ('$receiveUs
 $result = $con->query($sql);
 $con->close();
 
-include("./mainPanel.php");
+include("mainPanel.php");
 ?>
