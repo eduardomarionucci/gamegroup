@@ -1,6 +1,6 @@
 * {
     padding: 0;
-    margin: 0;   
+    margin: 0;
 }
 
 body {
@@ -31,12 +31,33 @@ body {
 }
 
 .discussionBox {
-    display: absolute;
+    display: flex;
     align-items: center;
     margin: 10px;
     padding: 10px;
     background-color: white;
     border-radius: 5px;
+}
+
+.discussion-part-1 {
+    display: absolute;
+    border-right: 1px solid #450066;
+}
+
+.expose-relevance {
+    text-align: center;
+    font-size: small;
+    font-weight: 900;
+    margin-right: 10px;
+    color: #450066;
+}
+
+#image-icon {
+    width: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease
 }
 
 .expose-message {
@@ -48,6 +69,7 @@ body {
 
 .token-message {
     display: flex;
+    margin-left: 10px;
     font-size: x-small;
     font-weight: 900;
     color: #450066;
@@ -70,6 +92,8 @@ body {
     max-width: 500px;
     background-color: rgb(214, 210, 210);
     border-radius: 5px;
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
 }
 
 .submit-message::placeholder {
@@ -78,26 +102,39 @@ body {
     color: #450066;
 }
 
-
-
-
-
 .display {
+    display: block;
     cursor: pointer;
     background-color: white;
     height: 35px;
     width: 200px;
-    max-width: 11%;
-    text-align: center;
-    appearance: none;
-    box-shadow: none; 
-    outline: none;
-    display: block;
+    max-width: 12%;
     margin: 10px;
-    
+    text-align: center;
     font-weight: 900;
     color: #450066;
+    border-radius: 10px;
     border: none;
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave */
+}
+
+.display-submit {
+    display: block;
+    cursor: pointer;
+    background-color: white;
+    height: 35px;
+    width: 145px;
+    margin-left: 10px;
+    text-align: center;
+    font-weight: 900;
+    color: #450066;
+    border-radius: 10px;
+    border: none;
+    transition: background-color 0.3s ease
+}
+
+.display:hover,  .display-submit:hover, #image-icon:hover{
+    background-color: rgb(211, 211, 211);
 }
 
 .messageLarge {

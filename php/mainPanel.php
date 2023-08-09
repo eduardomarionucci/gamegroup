@@ -23,27 +23,36 @@ echo 'Últimas publicações: </p>';
 
 $sql = "SELECT * FROM discussions ORDER BY id DESC";
 $result = $con->query($sql);
-while($linha = $result->fetch_object()){
+while ($linha = $result->fetch_object()) {
+
+
+    echo '<form  action="discussion.php" method="get">';
 
     echo '<div class="discussionBox">';
-    
-    echo '<form action="discussion.php" method="get">';
 
-    echo '<div class="token-message">';
-    echo $linha->game . " • Postado por " . $linha->username;
+    echo '<div class="discussion-part-1">';
+    echo '<img id="image-icon" src="./assets/like.png">';
+    echo '<p class="expose-relevance">15</p>';
+    echo '<img id="image-icon" src="./assets/unlike.png">';
     echo '</div>';
 
-    echo '<div class="expose-message">';
-    echo $linha->discussion;
+    echo '<div class="discussion-part-2">';
+    echo '<p class="token-message">' . $linha->game . " • Postado por " . $linha->username . "</p>";
+    echo '<p class="expose-message">' . $linha->discussion . "</p>";
+    echo '<input type="submit" class="display-submit" value="Acessar discussão">';
     echo '</div>';
-    
-    echo '<input type="submit" class="display" value="Acessar discussão">'; 
+
+    echo '</div>';
+
     echo '<input type="hidden" name="discussionID" value="' . $linha->id . '">';
     echo '<input type="hidden" name="discussionUSER" value="' . $linha->username . '">';
     echo '<input type="hidden" name="discussionMSG" value="' . $linha->discussion . '">';
     echo '<input type="hidden" name="discussionGAME" value="' . $linha->game . '">';
     echo '</form>';
-    echo '</div>'; 
-    }
-    $con->close();
+}
+$con->close();
 ?>
+
+<script>
+
+</script>
