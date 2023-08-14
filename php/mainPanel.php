@@ -1,7 +1,7 @@
 <?php
 include("connection.php");
 
-echo 'Bem-vindo, ' . $_SESSION["username"] . '!</p>';
+echo 'Bem-vindo, ' . @$_SESSION["username"] . '!</p>';
 
 echo '<div class="mediateBox">';
 
@@ -22,7 +22,7 @@ echo '</div></br>';
 echo 'Últimas publicações: </p>';
 
 $sql = "SELECT * FROM discussions ORDER BY id DESC";
-$result = $con->query($sql);
+$result = $conn->query($sql);
 while($linha = $result->fetch_object()){
 
     echo '<div class="discussionBox">';
@@ -45,5 +45,5 @@ while($linha = $result->fetch_object()){
     echo '</form>';
     echo '</div>'; 
     }
-    $con->close();
+    $conn->close();
 ?>

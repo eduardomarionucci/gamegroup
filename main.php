@@ -1,10 +1,10 @@
 <?php
-session_start();
+/* session_start();
 
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: index.php");
+    header("location: index.html");
     exit;
-}
+} */
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             receiveUser: receiveUser,
             receiveMessage: receiveMessage,
             receiveGame: receiveGame
-        }, function(x) {
+        }, function (x) {
             $("#mainPanel").html(x);
         }); // fechando o post
     }

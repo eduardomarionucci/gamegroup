@@ -18,7 +18,7 @@ echo "Últimos comentários: ";
 
 $discussion = $_SESSION['discussionID'];
 $sql = "SELECT * FROM comments WHERE discussion = '$discussion' ORDER BY id DESC";
-$result = $con->query($sql);
+$result = $conn->query($sql);
 while ($linha = $result->fetch_object()) {
 
     echo '<div class="commentBox">';
@@ -28,4 +28,4 @@ while ($linha = $result->fetch_object()) {
     echo '<input type="submit" class="display" value="relevante">';
     echo '</div>';
 }
-$con->close();
+$conn->close();
