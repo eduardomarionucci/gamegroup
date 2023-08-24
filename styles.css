@@ -9,7 +9,6 @@
 body {
   font-family: "Inter", sans-serif;
   background: #050a24;
-
 }
 
 .background {
@@ -31,7 +30,6 @@ body {
   align-items: flex-start;
   gap: 0.5rem;
   cursor: pointer;
-
 }
 
 .logo a {
@@ -40,7 +38,6 @@ body {
   color: #fff;
   text-decoration: none;
   font-weight: 800;
-
 }
 
 .area-login {
@@ -61,7 +58,6 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   padding: 3rem 4.5rem;
-
 }
 
 .login h1 {
@@ -135,13 +131,12 @@ body {
 
 .sections {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5rem;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
 }
 
-.backgroundc {
+/* .backgroundc {
   background: url("./assets/bg.png");
   background-size: cover;
   background-position: center;
@@ -153,43 +148,53 @@ body {
   left: 0;
   z-index: -1;
   overflow: hidden;
-}
+  display: flex;
+  flex-direction: column;
+} */
 
-.blank {
+.area-registro {
   width: 50%;
-  background: #fff;
-  height: auto;
+  background-color: #fff;
+  height: 100vh;
 }
 
 .containerbg {
   padding: 2rem;
   height: 100vh;
+  width: 50% !important;
+  display: flex;
+  background: url("./assets/bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .area {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 50%;
 }
 
 .quote {
-  position: absolute;
-  bottom: 50px;
+  margin-bottom: 20px;
 }
 
 #gradient {
   font-family: "Inter", sans-serif;
   margin: 5% 0 5% 0;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 800;
-  line-height: 93.5%;
+  line-height: 97%;
   /* or 73px */
   letter-spacing: -0.05em;
-  background: radial-gradient(64.79% 294.87% at 13.44% 37.11%,
+  background: radial-gradient(
+      64.79% 294.87% at 13.44% 37.11%,
       #deb8ef 0%,
-      rgba(255, 255, 255, 0.87) 100%)
-    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-  ;
+      rgba(255, 255, 255, 0.87) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -198,7 +203,6 @@ body {
   .container {
     padding: 0 40px;
   }
-
 }
 
 /* Path: styles.css */
