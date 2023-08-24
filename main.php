@@ -40,6 +40,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     </div>
 
 </body>
+
 <script>
     function sendDiscussion() {
         var receiveUser = <?= json_encode($_SESSION["username"]); ?>;
