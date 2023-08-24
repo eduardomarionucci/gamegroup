@@ -7,8 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-         
+    <div class="container">
+        <div class="background">
+            
+        </div>
     </div>
+    
 </body>
 </html>
