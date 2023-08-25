@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         id="password <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" placeholder="Senha"
                         required>
 
-                    <button type="submit" onclick="submitData();">Entrar</button>
+                    <button type="submit">Entrar</button>
                     <p>Não tem conta? <a href="./register.php">Cadastre-se</a> </p>
                 </form>
                 <div id="message">
