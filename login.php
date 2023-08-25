@@ -9,7 +9,7 @@ session_start();
 } */
 
 // Include config file
-require_once "connection.php";
+require_once "php/connection.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: ../main.php");
+                            header("location: ./main.php");
                         } else {
                             // Password is not valid, display a generic error message
                             $login_err = "Usuário ou senha inválido.";
@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         id="password <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" placeholder="Senha"
                         required>
 
-                    <button type="submit" onclick="submitData();">Entrar</button>
+                    <button type="submit">Entrar</button>
                     <p>Não tem conta? <a href="./register.php">Cadastre-se</a> </p>
                 </form>
                 <div id="message">

@@ -39,7 +39,16 @@ body {
     border-radius: 5px;
 }
 
-.discussion-part-1 {
+.commentBox {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.relevanceBox {
     display: absolute;
     border-right: 1px solid #450066;
 }
@@ -52,17 +61,56 @@ body {
     color: #450066;
 }
 
-#image-icon {
-    width: 30px;
+.discussion-upper {
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.image-icon {
+    width: 20px;
     margin-right: 10px;
+    margin-left: 15px;
+    margin-top: 10px;
     cursor: pointer;
     border-radius: 10px;
     transition: background-color 0.3s ease
 }
 
+.delete-icon {
+    width: 15px;
+    margin: 0px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease
+}
+
+.image-icon-press {
+    width: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: rgb(211, 211, 211);
+}
+
 .expose-message {
     margin: 10px;
+    max-width: 580px;
     font-size: larger;
+    font-weight: 900;
+    color: #450066;
+}
+
+.formBox {
+    display: absolute;
+    max-width: 580px;
+}
+
+.expose-message-cmt {
+    overflow: hidden;
+    margin: 10px;
+    font-size: smaller;
     font-weight: 900;
     color: #450066;
 }
@@ -75,21 +123,12 @@ body {
     color: #450066;
 }
 
-.commentBox {
-    display: flex;
-    font-size: smaller;
-    color: white;
-    padding: 10px;
-    background-color: #4d4d4d;
-    border-radius: 5px;
-    margin: 10px;
-}
-
 .submit-message {
     width: 900px;
     height: 35px;
     margin: 10px;
     max-width: 500px;
+    resize: none;
     background-color: rgb(214, 210, 210);
     border-radius: 5px;
     font-family: "Inter", sans-serif;
@@ -115,7 +154,24 @@ body {
     color: #450066;
     border-radius: 10px;
     border: none;
-    transition: background-color 0.3s ease; /* Adiciona uma transição suave */
+    transition: background-color 0.3s ease;
+    /* Adiciona uma transição suave */
+}
+
+.image-display {
+    display: block;
+    line-height: 35px;
+    background-color: white;
+    height: 35px;
+    width: 145px;
+    margin-left: 10px;
+    font-size: small;
+    text-align: center;
+    font-weight: 900;
+    color: #450066;
+    border-radius: 10px;
+    border: none;
+    transition: background-color 0.3s ease
 }
 
 .display-submit {
@@ -133,7 +189,11 @@ body {
     transition: background-color 0.3s ease
 }
 
-.display:hover,  .display-submit:hover, #image-icon:hover{
+.display:hover,
+.display-submit:hover,
+.image-icon:hover,
+.delete-icon:hover,
+.image-display:hover {
     background-color: rgb(211, 211, 211);
 }
 
