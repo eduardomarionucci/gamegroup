@@ -2,11 +2,7 @@
 include("connection.php");
 session_start();
 
-$sql = "SELECT id FROM users WHERE username = " . "'" . $_SESSION["username"] . "'";
-$result = $con->query($sql);
-$linha = $result->fetch_object();
-
-$receiveUsername = $linha->id;
+$receiveUsername = $_SESSION['usernameID'];
 $receiveMessage = $_POST["receiveMessage"];
 $receiveGame = $_POST["receiveGame"];
 

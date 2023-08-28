@@ -8,6 +8,7 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
+  height: 90vh;
 }
 .up {
   display: flex;
@@ -166,6 +167,37 @@ header {
   padding: 0 70px;
   background-color: #24252a;
 }
+
+.bg {
+  background-color: #24252a;
+  display: flex;
+  flex-direction: row;
+  padding: 6%;
+  justify-content: space-between;
+  align-items: center;
+  height: 100% !important;
+}
+
+.phrase {
+  font-family: "Inter", sans-serif;
+  width: 40%;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 25px;
+  letter-spacing: -0.05em;
+  text-decoration: none;
+  color: #edf0f1;
+  margin-right: 10px;
+}
+
+.media {
+  width: 60%;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 
 @media screen and (max-height: 450px) {
   .overlay a {

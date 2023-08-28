@@ -119,8 +119,8 @@ body {
 
 .container {
   max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 20px;
+  margin: 0;
+  padding:  20px;
 }
 
 #message {
@@ -180,6 +180,103 @@ body {
 .quote {
   margin-bottom: 20px;
 }
+.container-registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.registro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 70%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.registro h1 {
+  font-size: 40px;
+  color: #000;
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 93.5%;
+  font-weight: 800;
+  /* or 73px */
+  letter-spacing: -0.05em;
+}
+
+.registro input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgb(121, 0, 169);
+  border-radius: 5px;
+  padding: 0 10px;
+  margin-bottom: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+.registro button {
+  width: 100%;
+  height: 40px;
+  border: 0;
+  border-radius: 5px;
+  background-color: rgb(43, 43, 43);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+}
+
+.registro p {
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.registro a {
+  font-size: 14px;
+  color: rgb(132, 0, 255);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.registro button:hover {
+  background-color: #333;
+}
+.termos {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.termos input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  margin-bottom: 0 !important;
+}
+
+.termos label {
+  font-size: 14px;
+  color: #000;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
 
 #gradient {
   font-family: "Inter", sans-serif;
@@ -199,9 +296,20 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .container {
     padding: 0 40px;
+  }
+
+  .containerbg {
+    display: none;
+  }
+
+  .area-registro {
+    width: 100%;
+    background-color: #fff;
+    height: 100vh;
+    overflow: none;
   }
 }
 

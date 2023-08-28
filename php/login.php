@@ -3,10 +3,10 @@
 session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+/* if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: ./index.html");
     exit;
-}
+} */
 
 // Include config file
 require_once "connection.php";
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page
-                            header("location: ./main.php");
+                            header("location: ../main.php");
                         } else {
                             // Password is not valid, display a generic error message
                             $login_err = "Usuário ou senha inválido.";
@@ -91,75 +91,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="pt-br">
 
+
 <head>
-    <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./styles.css" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
-        crossorigin="anonymous"></script>
-    <style>
-
-    </style>
 </head>
-<?php
-if (!empty($login_err)) {
-    echo '<div class="alert alert-danger">' . $login_err . '</div>';
-}
-?>
 
 <body>
-    <div class="wrapper">
-        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content bg-dark">
-                    <div class="modal-header text-white">
-                        <h5 class="modal-title fs-3" id="exampleModalLabel">Login</h5>
-                        <button type="button" class="btn button-primary" data-bs-dismiss="modal" aria-label="Fechar">
-                            <img src="./assets/marca-cruzada.png" class="img-fluid">
-                        </button>
-                    </div>
-                    <div class="modal-body text-white">
-                        <div>
-                            <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                                <div class="mb-3">
-                                    <label for="username" class="form-label">Usuário</label>
-                                    <input type="text" name="username"
-                                        class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>"
-                                        value="<?php echo $username; ?>">
-                                    <span class="invalid-feedback">
-                                        <?php echo $username_err; ?>
-                                    </span>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="data-nascimento" class="form-label">Senha</label>
-                                    <input type="password" name="password"
-                                        class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                                    <span class="invalid-feedback">
-                                        <?php echo $password_err; ?>
-                                    </span>
-                                </div>
-                                <div class="mb-3">
-                                    <a href="" class="text-white font" data-bs-toggle="modal" data-bs-target="#myModalR"
-                                        data-bs-dismiss="modal">Não tem uma conta? Cadastre-se</a>
+    <script src="./js/login.js"></script>
+    <div class="background">
+        <!-- <div class="logo">
+            <a href="landing.html">GAMEGROUP</a>
+        </div> -->
+        <div class="area-login">
+            <div class="login">
+                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="loginForm">
+                    <h1>Login</h1>
+                    <input type="text" name="username" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>
+                        id="username" placeholder="Usuário" autofocus required>
+                    <input type="password" name="password"
+                        id="password <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" placeholder="Senha"
+                        required>
 
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Fechar</button>
-                                    <button type="submit" class="btn btn-primary">Login</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                    <button type="submit" onclick="submitData();">Entrar</button>
+                    <p>Não tem conta? <a href="./register.php">Cadastre-se</a> </p>
+                </form>
+                <div id="message">
+                    <p id="messageText">
+                        <?php
+
+                        if (!empty($login_err)) {
+                            echo '<div class="alert alert-danger">' . $login_err . '</div>';
+                        }
+                        ?>
+                    </p>
                 </div>
             </div>
+
         </div>
-
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 
 </html>

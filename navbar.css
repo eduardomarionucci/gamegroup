@@ -29,6 +29,7 @@ nav {
     border: none;
     font-weight: 900;
     color: #450066;
+    cursor: pointer;
 }
 
 .links {

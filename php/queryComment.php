@@ -3,7 +3,7 @@ include("connection.php");
 
 session_start();
 
-$receiveUsername = $_SESSION["username"];
+$receiveUsername = $_SESSION['usernameID'];
 $receiveDiscussion = $_POST["receiveDiscussion"];
 $receiveMessage = $_POST["receiveMessage"];
 

@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Prepare a select statement
         $sql = "SELECT id, username, password FROM users WHERE username = ?";
 
-        if ($stmt = mysqli_prepare($conn, $sql)) {
+        if ($stmt = mysqli_prepare($con, $sql)) {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
 
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Close connection
-    mysqli_close($conn);
+    mysqli_close($con);
 }
 ?>
 
@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         id="password <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" placeholder="Senha"
                         required>
 
-                    <button type="submit" onclick="submitData();">Entrar</button>
+                    <button type="submit">Entrar</button>
                     <p>Não tem conta? <a href="./register.php">Cadastre-se</a> </p>
                 </form>
                 <div id="message">
