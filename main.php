@@ -5,14 +5,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: index.html");
     exit;
 }
-
-include("php/connection.php");
-
-$sql = "SELECT id FROM users WHERE username = '" . $_SESSION["username"] . "'";
-$result = $con->query($sql);
-$linha = $result->fetch_object();
-
-$_SESSION['usernameID'] = $linha->id;
 ?>
 
 <!DOCTYPE html>
@@ -33,10 +25,7 @@ $_SESSION['usernameID'] = $linha->id;
 <body>
 
     <nav>
-        <a href="./main.php">
-            <button class="logo">GG</button>
-        </a>
-
+        <button class="logo" href="./main.php">GG</button>
         <div class="links">
             <div class="nav-message">Bem-vindo ao GameGroup</div>
 
@@ -62,30 +51,7 @@ $_SESSION['usernameID'] = $linha->id;
             receiveUser: receiveUser,
             receiveMessage: receiveMessage,
             receiveGame: receiveGame
-        }, function(x) {
-            $("#mainPanel").html(x);
-        }); // fechando o post
-    }
-
-    function sendRelevance(id, operation, requestRequired) {
-
-        $.post("./php/queryRelevance.php", {
-            requestId: id,
-            requestOperation: operation,
-            pageRequired: "main",
-            requestRequired: requestRequired
-        }, function(x) {
-            $("#mainPanel").html(x);
-        }); // fechando o post
-    }
-
-    function sendDelete(id, requestRequired) {
-
-        $.post("./php/queryDelete.php", {
-            requestId: id,
-            pageRequired: "main",
-            requestRequired: requestRequired
-        }, function(x) {
+        }, function (x) {
             $("#mainPanel").html(x);
         }); // fechando o post
     }
