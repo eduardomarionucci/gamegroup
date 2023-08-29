@@ -20,10 +20,22 @@ body {
     padding: 10px;
 }
 
+.title {
+    cursor: pointer;
+    margin-right: auto;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 25px;
+    letter-spacing: -0.05em;
+    text-decoration: none;
+    color: #edf0f1;
+}
+
 .mediateBox {
     display: flex;
     align-items: center;
-    height: 40px;
+    height: 50px;
     margin: 10px;
     padding: 10px;
     background-color: white;
@@ -78,7 +90,7 @@ body {
 }
 
 .delete-icon {
-    width: 15px;
+    width: 25px;
     margin: 0px;
     padding: 5px;
     cursor: pointer;

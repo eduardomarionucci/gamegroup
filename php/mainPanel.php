@@ -1,7 +1,7 @@
 <?php
 include("connection.php");
 
-echo 'Bem-vindo, ' . $_SESSION["username"] . '!</p>';
+echo '<p class="title">BEM-VINDO | ' . $_SESSION["username"] . '!</p>';
 
 echo '<div class="mediateBox">';
 
@@ -16,15 +16,15 @@ echo '<option value="Fortnite"> Fortnite</option>';
 echo '<option value="Dota 2"> Dota 2</option>';
 echo '</select>';
 
-echo '<div class="image-display">';
+echo '<span class="image-display">';
 echo '<label for="fileInput">Mídia</label>';
 echo '<input type="file" name="imagem" id="fileInput" style="display:none" />';
-echo '</div>';
+echo '</span>';
 
 echo '<button onClick="sendDiscussion()" class="display">Publicar </button>';
 echo '</div></br>';
 
-echo 'Últimas publicações: </p>';
+echo '<p class="title">ÚLTIMAS PLUBLICAÇÕES </p>';
 
 $sql = "SELECT * FROM discussions ORDER BY id DESC";
 $result = $con->query($sql);

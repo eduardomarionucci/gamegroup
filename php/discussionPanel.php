@@ -5,7 +5,7 @@ if (isset($_GET) && !empty($_GET)) {
     $_SESSION['discussionID'] = $_GET["discussionID"];
 }
 
-echo 'Acessando como: ' . $_SESSION["username"] . '</p>';
+echo '<p class="title">LOGADO | ' . $_SESSION["username"] . '</p>';
 
 $sql = "SELECT * FROM discussions WHERE id = '" . $_SESSION['discussionID'] . "'";
 $result = $con->query($sql);
@@ -59,7 +59,7 @@ echo '<textarea id="receiveMessage" class="submit-message" placeholder="Adiciona
 echo '<button onClick="sendComment()" class="display">Comentar </button>';
 echo '</div></br>';
 
-echo "Últimos comentários: ";
+echo '<p class="title">ÚLTIMOS COMENTÁRIOS ';
 
 $sql = "SELECT * FROM comments WHERE discussion = '" . $_SESSION['discussionID'] . "' ORDER BY id DESC";
 $result = $con->query($sql);

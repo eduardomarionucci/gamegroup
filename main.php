@@ -25,26 +25,18 @@ $_SESSION['usernameID'] = $linha->id;
     <link rel="icon" href="./assets/casa.png" type="image/png">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="./navbar.css">
     <link rel="stylesheet" href="./master.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Página principal</title>
 </head>
 
 <body>
 
-    <nav>
-        <a href="./main.php">
-            <button class="logo">GG</button>
-        </a>
-
-        <div class="links">
-            <div class="nav-message">Bem-vindo ao GameGroup</div>
-
-        </div>
-        <a href="./php/logout.php">
-            <button class="red-button"> Sair</button>
-        </a>
-    </nav>
+    <header>
+        <a class="logo" href="./main.php">GAMEGROUP</a>
+        <a class="nav-button" href="php/logout.php">Sair</a>
+        <p class="menu login">Menu</p>
+    </header>
 
     <div id="mainPanel" class="panel">
         <?php include("./php/mainPanel.php"); ?>

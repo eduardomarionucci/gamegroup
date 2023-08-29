@@ -102,6 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./styles.css" rel="stylesheet">
+    
     <title>Cadastro</title>
 </head>
 
@@ -137,12 +138,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             <?php /* echo $confirm_password_err; */ ?>
                         </span> -->
                         <input type="text" name="telephone" id="telephone" value="" placeholder="Telefone" required>
+
+                        <span class="radio-group">
+                                <input type="radio" name="opcao" value="opcao1">
+                                <label for="termos">Masculino</label>
+                                <input type="radio" name="opcao" value="opcao2">
+                                <label for="termos">Feminino</label>
+                        </span></br>
+                        
                         <div class="termos">
                             <input type="checkbox" name="termos" id="termos" value="termos" required>
                             <label for="termos">Eu aceito os <a href="#">termos de uso</a></label>
                         </div>
 
-                        <button type="submit" onclick="">Cadastrar-se</button>
+                        <button type="submit">Cadastrar-se</button>
                     </form>
 
                     <p>Já tem conta? <a href="./login.php">Entre</a> </p>
