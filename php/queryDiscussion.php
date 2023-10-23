@@ -6,8 +6,11 @@ $receiveUsername = $_SESSION['usernameID'];
 $receiveMessage = $_POST["receiveMessage"];
 $receiveGame = $_POST["receiveGame"];
 
-$sql = "INSERT INTO discussions (username, discussion, game) values ('$receiveUsername', '$receiveMessage', '$receiveGame')";
-$result = $con->query($sql);
+$sql = "INSERT INTO discussions (username, discussion, game) values (?, ?, ?)";
+$stmt = $con->prepare($sql);
+$stmt->bind_param("sss", $receiveUsername, $receiveMessage, $receiveGame);
+$stmt->execute();   
+$stmt->close();
 $con->close();
 
 include("mainPanel.php");
