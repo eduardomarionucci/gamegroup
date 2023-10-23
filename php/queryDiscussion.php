@@ -8,7 +8,10 @@ $receiveGame = $_POST["receiveGame"];
 
 $sql = "INSERT INTO discussions (username, discussion, game) values (?, ?, ?)";
 $stmt = $con->prepare($sql);
-$stmt->bind_param("sss", $receiveUsername, $receiveMessage, $receiveGame);
+
+$cleanedMessage = strip_tags($receiveMessage);
+
+$stmt->bind_param("sss", $receiveUsername, $cleanedMessage, $receiveGame);
 $stmt->execute();   
 $stmt->close();
 $con->close();
