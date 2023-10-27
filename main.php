@@ -8,11 +8,11 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 include("php/connection.php");
 
-$sql = "SELECT id FROM users WHERE username = '" . $_SESSION["username"] . "'";
-$result = $con->query($sql);
-$linha = $result->fetch_object();
+// $sql = "SELECT icon FROM users WHERE id = '" . $_SESSION["userID"] . "'";
+// $result = $con->query($sql);
+// $linha = $result->fetch_object();
 
-$_SESSION['usernameID'] = $linha->id;
+// $_SESSION['userICON'] = $linha->icon;
 ?>
 
 <!DOCTYPE html>
@@ -27,60 +27,22 @@ $_SESSION['usernameID'] = $linha->id;
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./master.css">
     <link rel="stylesheet" href="./style.css">
-    <title>Página principal</title>
+    <title>Página Principal</title>
 </head>
 
 <body>
-
-    <header>
-        <a class="logo" href="./main.php">GAMEGROUP</a>
-        <a class="nav-button" href="php/logout.php">Sair</a>
-        <p class="menu login">Menu</p>
-    </header>
+    <?php include("./php/naviBar.php"); ?>
 
     <div id="mainPanel" class="panel">
         <?php include("./php/mainPanel.php"); ?>
     </div>
-
 </body>
 
 <script>
-    function sendDiscussion() {
-        var receiveUser = <?= json_encode($_SESSION["username"]); ?>;
-        var receiveMessage = document.getElementById("receiveMessage").value;
-        var receiveGame = document.getElementById("receiveGame").value;
-
-        $.post("./php/queryDiscussion.php", {
-            receiveUser: receiveUser,
-            receiveMessage: receiveMessage,
-            receiveGame: receiveGame
-        }, function(x) {
-            $("#mainPanel").html(x);
-        }); // fechando o post
-    }
-
-    function sendRelevance(id, operation, requestRequired) {
-
-        $.post("./php/queryRelevance.php", {
-            requestId: id,
-            requestOperation: operation,
-            pageRequired: "main",
-            requestRequired: requestRequired
-        }, function(x) {
-            $("#mainPanel").html(x);
-        }); // fechando o post
-    }
-
-    function sendDelete(id, requestRequired) {
-
-        $.post("./php/queryDelete.php", {
-            requestId: id,
-            pageRequired: "main",
-            requestRequired: requestRequired
-        }, function(x) {
-            $("#mainPanel").html(x);
-        }); // fechando o post
-    }
+    var requestPage = "mainPanel";
+    var receiveSecond;
+    // var receiveSecond = document.getElementById("receiveSecond").value;
 </script>
+<script src="./script.js"></script>
 
 </html>

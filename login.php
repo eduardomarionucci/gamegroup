@@ -60,8 +60,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
+                            $_SESSION["userID"] = $id;
                             $_SESSION["username"] = $username;
+                            
+                            $sql = "SELECT icon FROM users WHERE id = '" . $id . "'";
+                            $result = $con->query($sql);
+                            $linha = $result->fetch_object();
+                            $_SESSION['userICON'] = $linha->icon;
 
                             // Redirect user to welcome page
                             header("location: ./main.php");
@@ -96,8 +101,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./styles.css" rel="stylesheet">
-
+    <link href="./login-register.css" rel="stylesheet">
+    <title>Página de Login</title>
 </head>
 
 <body>
@@ -110,11 +115,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="login">
                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="loginForm">
                     <h1>Login</h1>
-                    <input type="text" name="username" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>
-                        id="username" placeholder="Usuário" autofocus required>
-                    <input type="password" name="password"
-                        id="password <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" placeholder="Senha"
-                        required>
+                    <input type="text" name="username" <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?> id="username" placeholder="Usuário" autofocus required>
+                    <input type="password" name="password" id="password <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>" placeholder="Senha" required>
 
                     <button type="submit">Entrar</button>
                     <p>Não tem conta? <a href="./register.php">Cadastre-se</a> </p>
