@@ -5,6 +5,7 @@ require_once "php/connection.php";
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
+/* var_dump($username); */
 // Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -17,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
 
-        if ($stmt = mysqli_prepare($con, $sql)) {
+        if ($stmt = mysqli_prepare($conn, $sql)) {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
 
@@ -68,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Prepare an insert statement
         $sql = "INSERT INTO users (username, password, icon) VALUES (?, ?, ?)";
 
-        if ($stmt = mysqli_prepare($con, $sql)) {
+        if ($stmt = mysqli_prepare($conn, $sql)) {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_icon);
 
@@ -89,9 +90,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_close($stmt);
         }
     }
-    // var_dump(mysqli_error($con));
+    var_dump(mysqli_error($conn));
     // Close connection
-    mysqli_close($con);
+    mysqli_close($conn);
 }
 ?>
 
@@ -135,9 +136,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <span class="invalid-feedback">
                             <?php echo $password_err; ?>
                         </span>
-                        <!-- <span class="invalid-feedback">
-                            <?php /* echo $confirm_password_err; */ ?>
-                        </span> -->
+                        <span class="invalid-feedback">
+                            <?php echo $confirm_password_err; ?>
+                        </span>
                         <input type="text" name="telephone" id="telephone" value="" placeholder="Telefone" required>
 
                         <span class="radio-group">
