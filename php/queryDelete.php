@@ -1,12 +1,13 @@
 <?php
+
+?><script>console.log("chega aqui")</script><?php
 include("connection.php");
 session_start();
 
+$requestPage = $_POST["requestPage"];
 $requestId = $_POST["requestId"];
-$pageRequired = $_POST["pageRequired"];
+// $pageRequired = $_POST["pageRequired"];
 $requestRequired = $_POST["requestRequired"];
-
-echo "<script>console.log('Chegou aqui2')</script>";
 
 if ($requestRequired == "discussion") {
 
@@ -14,9 +15,10 @@ if ($requestRequired == "discussion") {
     $result = $con->query($sql);
     $linha = $result->fetch_object();
 
-    if ($linha->username == $_SESSION['usernameID']) {
+    
+    if ($linha->user_id == $_SESSION['userID']) {
 
-        $sql = "SELECT * FROM comments WHERE discussion = '$requestId'";
+        $sql = "SELECT * FROM comments WHERE discussion_id = '$requestId'";
         $result = $con->query($sql);
         while ($linha = $result->fetch_object()) {
 
@@ -24,7 +26,7 @@ if ($requestRequired == "discussion") {
             $con->query($sql2);
         }
 
-        $sql = "DELETE FROM comments WHERE discussion = '$requestId'";
+        $sql = "DELETE FROM comments WHERE discussion_id = '$requestId'";
         $con->query($sql);
 
         $sql = "DELETE FROM relevance WHERE discussion_id = '$requestId'";
@@ -39,7 +41,7 @@ if ($requestRequired == "discussion") {
     $result = $con->query($sql);
     $linha = $result->fetch_object();
 
-    if ($linha->username == $_SESSION['usernameID']) {
+    if ($linha->user_id == $_SESSION['userID']) {
 
     $sql = "DELETE FROM relevance WHERE comment_id = '$requestId'";
     $con->query($sql);
@@ -48,6 +50,6 @@ if ($requestRequired == "discussion") {
     $con->query($sql);
     }
 }
-
 $con->close();
-include($pageRequired . "Panel.php");
+
+include($requestPage . ".php");

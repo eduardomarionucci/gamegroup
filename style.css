@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
 }
-.container{
+.container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
@@ -15,7 +15,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.column{
+.column {
   flex: 50%;
   padding: 0 10px;
   margin-top: 32px;
@@ -54,7 +54,7 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 20px 10%;
+  padding: 10px 10%;
   background-color: #24252a;
 }
 
@@ -70,12 +70,12 @@ header {
   color: #edf0f1;
 }
 
-.logo:hover a{
+.logo:hover a {
   color: rgb(121, 0, 169);
 }
 
 .nav__links a,
-.login,
+.nav-button,
 .overlay__content a {
   font-family: "Inter", sans-serif;
   font-weight: 500;
@@ -100,8 +100,8 @@ header {
   color: rgb(121, 0, 169);
 }
 
-.login {
-  padding: 9px 25px;
+.nav-button {
+  padding: 5px 20px;
   background-color: rgb(121, 0, 169);
   border: none;
   border-radius: 50px;
@@ -109,7 +109,7 @@ header {
   transition: background-color 0.3s ease 0s;
 }
 
-.login:hover {
+.nav-button:hover {
   background-color: rgb(53, 53, 53);
 }
 
@@ -198,6 +198,67 @@ header {
   align-items: center;
 }
 
+/* Style a table */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  border: none;
+}
+
+th,
+td {
+  border: 1px solid black;
+  font-family: "Inter" sans-serif;
+  font-size: 18px;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.game img {
+  width: 150px;
+  height: auto;
+}
+
+.container h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 49px;
+  letter-spacing: -0.05em;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.down {
+  font-family: "Inter" sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.container h1 {
+  font-family: "Inter", sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 73px;
+  letter-spacing: -0.05em;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
 
 @media screen and (max-height: 450px) {
   .overlay a {
@@ -210,9 +271,17 @@ header {
   }
 }
 
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 1.5;
+  color: #333;
+}	
+
 @media only screen and (max-width: 800px) {
   .nav__links,
-  .login {
+  .nav-button {
     display: none;
   }
   .menu {

@@ -254,6 +254,23 @@ body {
 .registro button:hover {
   background-color: #333;
 }
+
+.radio-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.radio-group input{
+  width: 20px;
+  height: 20px;
+  margin-inline: 30px;
+  margin-bottom: 0 !important;
+}
+
 .termos {
   display: flex;
   flex-direction: row;
@@ -314,3 +331,4 @@ body {
 }
 
 /* Path: styles.css */
+

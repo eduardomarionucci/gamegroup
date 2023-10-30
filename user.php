@@ -6,13 +6,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     exit;
 }
 
-include("php/connection.php");
+include("./php/connection.php");
 
-// $sql = "SELECT icon FROM users WHERE id = '" . $_SESSION["userID"] . "'";
-// $result = $con->query($sql);
-// $linha = $result->fetch_object();
-
-// $_SESSION['userICON'] = $linha->icon;
+$_SESSION['currentUser'] = $_GET["userNOW"];
+$sql = "SELECT id FROM users WHERE username = '" . $_SESSION['currentUser'] . "'";
+$result = $con->query($sql);
+$linha = $result->fetch_object();
+$_SESSION['currentUserID'] = $linha->id;
 ?>
 
 <!DOCTYPE html>
@@ -27,20 +27,21 @@ include("php/connection.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <link rel="stylesheet" href="./master.css">
     <link rel="stylesheet" href="./style.css">
-    <title>Página de Discussões</title>
+    <title>Página de Usuário</title>
 </head>
 
 <body>
+    
     <?php include("./php/naviBar.php"); ?>
 
-    <div id="discussionPanel" class="panel">
-        <?php include("./php/discussionPanel.php"); ?>
+    <div id="userPanel" class="panel">
+        <?php include("./php/userPanel.php"); ?>
     </div>
 </body>
 
 <script>
-    var requestPage = "discussionPanel";
-    var receiveSecond = <?= json_encode($_SESSION['discussionID']); ?>;
+    var requestPage = "userPanel";
+    var receiveSecond = document.getElementById("receiveSecond").value;
 </script>
 <script src="./script.js"></script>
 
