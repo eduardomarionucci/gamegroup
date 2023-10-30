@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
 
-        if ($stmt = mysqli_prepare($conn, $sql)) {
+        if ($stmt = mysqli_prepare($con, $sql)) {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_username);
 
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Prepare an insert statement
         $sql = "INSERT INTO users (username, password, icon) VALUES (?, ?, ?)";
 
-        if ($stmt = mysqli_prepare($conn, $sql)) {
+        if ($stmt = mysqli_prepare($con, $sql)) {
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_icon);
 
@@ -90,9 +90,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_close($stmt);
         }
     }
-    var_dump(mysqli_error($conn));
+    var_dump(mysqli_error($con));
     // Close connection
-    mysqli_close($conn);
+    mysqli_close($con);
 }
 ?>
 
