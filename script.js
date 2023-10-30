@@ -4,11 +4,13 @@ function sendDiscussion() {
     if (requestPage === "mainPanel" || requestPage === "userPanel") {
         receiveSecond = document.getElementById("receiveSecond").value;
     }
+    var receiveFourth = document.getElementById("receiveFourth").value;
 
     $.post("php/insertDiscussion.php", {
         requestPage: requestPage,
         receiveSecond: receiveSecond, //discussion or discussion
         receiveThird: receiveThird, //game or comment
+        receiveFourth: receiveFourth //image link
     }, function(x) {
         $("#" + requestPage).html(x);
     });
@@ -38,5 +40,18 @@ function sendDelete(id, requestRequired) {
 
     if (requestPage == "discussionPanel" && requestRequired == "discussion") {
         window.history.back();
+    }
+}
+
+let showed = false; 
+
+function showLinkInput() {
+    console.log("showLinkInput");
+    if (!showed) {
+        document.getElementById("linkInput").style.display = "flex";
+        showed = true;
+    } else {
+        document.getElementById("linkInput").style.display = "none";
+        showed = false;
     }
 }

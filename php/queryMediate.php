@@ -25,11 +25,13 @@ if ($_SESSION['requirement'] == "discussionPanel") {
 
     echo '</select>';
 
-    echo '<span class="image-display">';
-    echo '<label for="fileInput">Mídia</label>';
-    echo '<input type="file" name="imagem" id="fileInput" style="display:none" />';
-    echo '</span>';
+    echo '<button class="display" onClick="showLinkInput()">Mídia</button>';
 
     echo '<button onClick="sendDiscussion()" class="display">Publicar </button>';
     echo '</div></br>';
+
+    echo 
+    '<div id="linkInput" class="mediateBox" style="display:none">
+        <input id="receiveFourth" class="submit-message" placeholder="Link da imagem..."></input>
+    </div>';
 }
