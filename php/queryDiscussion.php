@@ -74,7 +74,8 @@ while ($linha = $result->fetch_object()) {
     echo '<form class="formBox" action="user.php" method="get">';
     echo '<button type="submit" class="token-icon">';
 
-    echo '<img src=assets/perfil-icons/' . $linha3->icon . '>';
+    // echo '<img src=assets/perfil-icons/' . $linha3->icon . '>';
+    echo '<img src=https://ui-avatars.com/api/?bold=0&background=3e0c5e&color=FFFFFF&name=' . $linha3->username . '>';
 
     echo '</button>';
     echo '<input type="hidden" name="userNOW" value="' . $linha3->username . '">';

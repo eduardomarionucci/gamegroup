@@ -52,7 +52,7 @@
 
 header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   align-items: center;
   padding: 10px 10%;
   background-color: #24252a;
@@ -72,6 +72,55 @@ header {
 
 .logo:hover a {
   color: rgb(121, 0, 169);
+}
+
+.submit-user {
+  width: 950px;
+  height: 35px;
+  max-width: 500px;
+  resize: none;
+  background-color: rgb(214, 210, 210);
+  color: #450066;
+  border-radius: 5px;
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+}
+
+.submit-user::placeholder {
+  font-family: "Inter", sans-serif;
+  font-weight: 900;
+  color: #450066;
+}
+
+.display-search {
+  display: block;
+  cursor: pointer;
+  background-color: white;
+  height: 35px;
+  width: 35px;
+  max-width: 13%;
+  margin-left: 10px;
+  text-align: center;
+  font-weight: 900;
+  color: #450066;
+  border-radius: 10px;
+  border: none;
+  transition: background-color 0.3s ease;
+  /* Adiciona uma transição suave */
+}
+
+.display-search:hover {
+    background-color: rgb(211, 211, 211);
+}
+
+.title-user {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 25px;
+  letter-spacing: -0.05em;
+  text-decoration: none;
+  color: #edf0f1;
 }
 
 .nav__links a,
