@@ -46,12 +46,12 @@ include("php/connection.php");
 
         echo '<form class="formBox" action="user.php" method="get">';
         echo '<button type="submit" class="token-icon">';
-        echo '<img src=assets/perfil-icons/' . $linha->icon . '>';
+        echo '<img style="margin-right:10px" src=https://ui-avatars.com/api/?bold=0&background=3e0c5e&color=FFFFFF&name=' . $linha->username . '>';
         echo '</button>';
         echo '<input type="hidden" name="userNOW" value="' . $linha->username . '">';
         echo '</form>';
 
-        echo '<p class="token-search">' . $linha->username . '</p>';
+        echo '<p class="token-search" style="color:black">' . $linha->username . '</p>';
 
         echo '</div>';
         echo '</div>';
