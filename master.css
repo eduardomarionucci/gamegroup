@@ -4,20 +4,30 @@
 }
 
 body {
-    background-image: url("./assets/background2.png");
-    /* background-color: #2e0741; */
-    background-size: cover;
-    font-family: "Inter", sans-serif;
+    background-image: url("./assets/back2.png");
+    background-size: 500px;
 }
 
 .panel {
-    display: absolute;
+    display: flex;
+    flex-direction: column;
     margin-left: auto;
     margin-right: auto;
     max-width: 50%;
     font-size: large;
     color: white;
     padding: 10px;
+}
+
+.title {
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: -0.05em;
+    text-decoration: none;
+    color: #edf0f1;
+    margin-left: 10px;
 }
 
 .banner {
@@ -77,16 +87,14 @@ body {
 .token-icon {
     border: none;
     cursor: pointer;
-    margin-top: 7px;
-    margin-left: 10px;
     background: none;
 }
 
 .token-icon img {
     border: none;
     border-radius: 100%;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     object-fit: cover;
     transition: background-color 0.3s ease
 }
@@ -98,12 +106,12 @@ body {
 
 .perfil-icon img {
     border-radius: 100%;
-    width: 70px;
-    height: 70px;
-    margin-top: 7px;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding: 5px;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 7px;
     cursor: pointer;
     object-fit: cover;
     transition: background-color 0.3s ease
@@ -129,29 +137,38 @@ body {
 }
 
 .relevanceBox {
-    display: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
     border-right: 1px solid #450066;
+    padding: 10px;
+}
+#receiveSecond {
+    padding: 5px;
+}
+#receiveThird {
+    appearance: none;
 }
 
 .expose-relevance {
     text-align: center;
     font-size: small;
-    font-weight: 900;
-    margin-right: 10px;
+    font-weight: 800;
     color: #450066;
 }
 
 .discussion-upper {
-    justify-content: left;
+    justify-content: start;
     display: flex;
     align-items: center;
+    align-content: center;
+    margin-left: 10px;
 }
 
 .image-icon {
     width: 20px;
-    margin-right: 10px;
-    margin-left: 15px;
-    margin-top: 10px;
     cursor: pointer;
     border-radius: 10px;
     transition: background-color 0.3s ease
@@ -167,23 +184,25 @@ body {
 }
 
 .image-icon-press {
-    width: 30px;
-    margin-right: 10px;
+    width: 20px;
     cursor: pointer;
     border-radius: 10px;
     background-color: rgb(211, 211, 211);
 }
 
 .expose-message {
-    margin: 10px;
+    padding-left: 10px;
     max-width: 580px;
     font-size: larger;
-    font-weight: 900;
+    font-weight: 600;
     color: #450066;
+    word-wrap: break-word;
 }
 
 .formBox {
-    display: absolute;
+    display: flex;
+    align-items: center;
+    align-content: center;
     max-width: 580px;
 }
 
@@ -191,8 +210,9 @@ body {
     overflow: hidden;
     margin: 10px;
     font-size: smaller;
-    font-weight: 900;
+    font-weight: 600;
     color: #450066;
+    word-wrap: break-word;
 }
 
 .token-message {
@@ -201,17 +221,7 @@ body {
     display: flex;
     margin-left: 10px;
     font-size: x-small;
-    font-weight: 900;
-    color: #450066;
-}
-
-.token-search {
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-left: 10px;
-    font-size: x-large;
-    font-weight: 900;
+    font-weight: 500;
     color: #450066;
 }
 
@@ -229,7 +239,7 @@ body {
 
 .submit-message::placeholder {
     font-family: "Inter", sans-serif;
-    font-weight: 900;
+    font-weight: 500;
     color: #450066;
 }
 
@@ -242,7 +252,7 @@ body {
     max-width: 13%;
     margin: 10px;
     text-align: center;
-    font-weight: 900;
+    font-weight: 500;
     color: #450066;
     border-radius: 10px;
     border: none;
@@ -259,7 +269,7 @@ body {
     margin-left: 10px;
     font-size: small;
     text-align: center;
-    font-weight: 900;
+    font-weight: 500;
     color: #450066;
     border-radius: 10px;
     border: none;
@@ -274,7 +284,7 @@ body {
     width: 145px;
     margin-left: 10px;
     text-align: center;
-    font-weight: 900;
+    font-weight: 500;
     color: #450066;
     border-radius: 10px;
     border: none;
